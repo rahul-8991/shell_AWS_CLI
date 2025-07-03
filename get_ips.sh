@@ -1,7 +1,4 @@
 #!/bin/bash
-
-AMI_ID="ami-09c813fb71547fc4f"
-SG_ID="sg-0c353a79d89785c5b" # Allow all traffic SG ID
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 
 for instance in ${INSTANCES[@]}
