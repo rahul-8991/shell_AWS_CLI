@@ -1,6 +1,10 @@
 #!/bin/bash
 
-INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
+# Dynamically fetch all instance names (tag:Name) for running instances
+INSTANCES=($(aws ec2 describe-instances \
+  --filters "Name=instance-state-name,Values=running" \
+  --query "Reservations[*].Instances[*].Tags[?Key=='Name'].Value[]" \
+  --output text))
 
 for instance in "${INSTANCES[@]}"
 do
