@@ -24,7 +24,7 @@ else
     echo "You are running with root access" | tee -a $LOG_FILE
 fi
 
-# validate functions takes input as exit status, what command they tried to install
+# validate functions takes input as exit status,what command they tried to install
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
